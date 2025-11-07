@@ -71,9 +71,7 @@ const Index = () => {
 
           {/* Trust Indicators */}
           <div className="text-center mt-12 text-primary-foreground/70">
-            <p className="text-sm">
-              Join 500+ businesses already on the waitlist
-            </p>
+            <p className="text-sm">Join 200+ businesses already on the waitlist</p>
           </div>
         </div>
       </div>
