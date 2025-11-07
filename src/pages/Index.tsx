@@ -6,10 +6,7 @@ const Index = () => {
           {/* Header */}
           <div className="text-center mb-12 md:mb-16 animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">Mona</h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              Join the waitlist for the next-generation CRM platform designed to help your business grow faster, 
-              connect deeper, and close more deals.
-            </p>
+            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">Join the waitlist for the next-generation CRM platform designed to help your business grow faster, connect deeper, and make more sales.</p>
           </div>
 
           {/* Features Grid */}
@@ -21,9 +18,7 @@ const Index = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-primary-foreground mb-2">Lightning Fast</h3>
-              <p className="text-primary-foreground/80">
-                Manage contacts, deals, and conversations in one unified platform.
-              </p>
+              <p className="text-primary-foreground/80">Manage contacts, sales, and conversations in one unified platform.</p>
             </div>
 
             <div className="bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/10 animate-slide-up" style={{
