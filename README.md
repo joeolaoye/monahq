@@ -71,3 +71,18 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Form Submission (Formspree)
+
+This project now uses Formspree for lead capture.
+
+- Set your Formspree form ID in `.env`:
+
+```sh
+VITE_FORMSPREE_FORM_ID="<your_form_id>"
+```
+
+- The lead form posts JSON to `https://formspree.io/f/<your_form_id>`.
+- Success and error toasts are shown automatically in the UI.
+
+Note: Supabase Edge Functions previously used for submission have been removed.

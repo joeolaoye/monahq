@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+// Using Formspree for form submission
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
@@ -62,18 +62,31 @@ export default function LeadForm() {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke("submit-lead", {
-        body: {
+      const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID as string | undefined;
+      if (!formspreeFormId) {
+        throw new Error("Missing Formspree form ID (VITE_FORMSPREE_FORM_ID)");
+      }
+
+      const response = await fetch(`https://formspree.io/f/${formspreeFormId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
           businessName: data.businessName,
           phoneNumber: data.phoneNumber,
           email: data.email || "",
           website: data.website || "",
           messagingPlatform: data.messagingPlatform || "",
           businessSector: data.businessSector || "",
-        },
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`Formspree submission failed: ${errText}`);
+      }
 
       setIsSuccess(true);
       reset();
