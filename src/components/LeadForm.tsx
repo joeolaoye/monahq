@@ -149,7 +149,7 @@ export default function LeadForm() {
           id="phoneNumber"
           type="tel"
           {...register("phoneNumber")}
-          placeholder="+1 (555) 000-0000"
+          placeholder="+2348000000000"
           className="bg-input border-border focus:ring-primary"
         />
         {errors.phoneNumber && (
